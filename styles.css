@@ -1,0 +1,448 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  align-items: center; /* Centers the container vertically */
+  justify-content: center; /* Centers the container horizontally */
+  background: rgb(236, 219, 198); /* Simulating the background color */
+}
+
+.my_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100vw; /* This will make the container full width */
+  max-width: 1200px; /* Maximum width, can adjust */
+}
+@media (min-width: 600px) {
+  .my_container {
+    margin: 0 auto; /* This will center the container */
+    max-width: 600px; /* Maximum width, can adjust */
+  }
+}
+
+.wall {
+  width: 100%;
+  height: auto;
+  z-index: 11;
+}
+
+.floor {
+  z-index: 12;
+  background-color: #764b34; /* Color for the floor */
+  height: 20vw; /* Fixed height for the floor */
+  width: 100%; /* Represents the width */
+  max-width: 600px; /* Maximum width, can adjust */
+  max-height: 90px;
+  border-top: 6px solid #653a2a; /* Darker color for the line at the top of the floor */
+}
+
+#boardImage {
+  position: absolute; /* Allows you to position it anywhere within my_container */
+  top: 55%; /* Adjust this value to move the board up or down */
+  left: 70%; /* Adjust this value to move the board left or right */
+  transform: translate(-50%, -50%); /* Center the board at the specified top/left position */
+  width: 15vw; /* Adjust the size as needed */
+  max-width: 90px;
+  height: auto; /* Maintain the aspect ratio */
+  z-index: 70; /* Ensure it's above the wall but below interactive elements */
+  cursor: pointer;
+}
+
+/* Your existing styles for .my_container, .wall, .floor, etc. */
+
+/* ... existing styles ... */
+
+/* ... existing styles ... */
+
+/* ... other styles ... */
+
+#menu-button {
+  position: fixed; /* Fixed positioning to place the button relative to the viewport */
+  right: 10px; /* 10px from the right edge of the viewport */
+  bottom: 10px; /* 10px from the bottom edge of the viewport */
+  width: 50px; /* Width of the square button */
+  height: 50px; /* Height of the square button */
+  padding: 0; /* Remove padding to make it more square-like */
+  border-radius: 0; /* Optional: removes the rounded corners for a true square shape */
+  z-index: 200; /* Keeps it above other elements */
+}
+
+/* ... */
+
+
+.slide-up-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%; /* Start off-screen */
+  background: #fff; /* Set the background color */
+  padding: 1rem;
+  transition: bottom 0.5s ease-in-out;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Optional: adds a shadow above the menu */
+  z-index: 100;
+  height: 100px;
+}
+
+.slide-up-menu .navbar-item {
+  display: block; /* Stack items vertically */
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+/* ... other styles ... */
+
+/* ... other styles ... */
+
+.furniture-row {
+  display: flex; /* Aligns the furniture items in a row */
+  overflow-x: auto; /* Allows horizontal scrolling if there are many items */
+  padding: 0.5rem;
+  margin-bottom: 1rem; /* Space below the row */
+  max-height: 100px;
+}
+
+.furniture-item {
+  width: 10vw; /* Scales the furniture images with the viewport width */
+  height: auto; /* Keeps the aspect ratio of the images */
+  cursor: pointer; /* Indicates that the items are clickable */
+  margin-right: 0.5rem; /* Space between items */
+  max-width: 100px;
+  z-index: 90;
+}
+
+.celestial {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 10vw;
+  height: 10vw;
+  min-width: 50px;
+  min-height: 50px;
+
+  border-radius: 50%;
+  display: none;
+}
+
+#moon {
+  background-color: gray;
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.8);
+}
+
+#sun {
+  background-color: yellow;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+  animation: glowingSun 2s infinite alternate; 
+}
+
+@keyframes glowingSun {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.8);
+  }
+}
+
+
+#lil-spuddy {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-height: 90px; /* Adjust the maximum height as needed */
+  cursor: pointer;
+  z-index: 100;
+}
+
+.weather-container {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ... existing styles ... */
+
+/* Position the weather display below the clock */
+#weatherDisplay {
+  position: fixed;
+  top: 50px; /* Adjust this value to position below the clock */
+  left: 10px;
+  font-size: 24px;
+  color: #070303;
+  background: transparent;
+  padding: 5px;
+}
+
+#currencyCounter {
+  position: fixed;
+  top: 50px; /* Adjust this value to position below the clock */
+  left: 10px;
+  font-size: 24px;
+  color: #ffffff;
+  background: transparent;
+  padding: 5px;
+}
+
+.furniture-item-container {
+  position: relative;
+  display: inline-block; /* Adjust as needed */
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+
+@keyframes moveClouds {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100vw - 100%)); /* Move right to the edge of the screen minus the cloud's width */
+  }
+}
+
+
+
+/* Cloud base */
+.cloud {
+  animation: moveClouds 60s linear infinite;
+  z-index: 10;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 50%;
+  width: 120px;
+  height: 60px;
+  z-index: 10;
+  
+  /* Add some shadow for depth */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Add animations for moving clouds left and right */
+@keyframes moveCloudsLeft {
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveCloudsRight {
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+/* Apply the animations to cloud elements with varying durations and delays for randomness */
+.cloud:nth-child(odd) {
+  animation: moveCloudsLeft 200s linear infinite;
+}
+
+.cloud:nth-child(even) {
+  animation: moveCloudsRight 200s linear infinite;
+}
+
+/* You can add multiple cloud styles with different animations if you like */
+.cloud:nth-child(3n) {
+  animation: moveCloudsLeft 250s linear infinite;
+}
+
+.cloud:nth-child(4n) {
+  animation: moveCloudsRight 220s linear infinite;
+}
+
+/* Repeated shapes to create the fluffy look */
+.cloud::after,
+.cloud::before {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.cloud::after {
+  top: -30px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.cloud::before {
+  top: -45px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+/* Additional circles to create a fuller cloud */
+.cloud span {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.cloud span:nth-child(1) {
+  top: -20px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+}
+
+.cloud span:nth-child(2) {
+  top: -30px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.cloud span:nth-child(3) {
+  top: -20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+}
+
+
+/* Raindrops */
+.raindrop {
+  position: absolute;
+  bottom: 0;
+  background-color: #0cf;
+  width: 5px;
+  height: 20px;
+  z-index: 10;
+  border-radius: 5px;
+  animation: fall 0.5s infinite;
+}
+
+/* Snowflakes */
+.snowflake {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: fall 1s infinite;
+}
+
+/* Falling animation for rain and snow */
+@keyframes fall {
+  to {
+    transform: translateY(60vh); /* Move the drops to the bottom of the screen */
+  }
+}
+
+.quote-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.quote-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  animation: modalEnter 1s ease-in-out forwards;
+}
+
+@keyframes modalEnter {
+  0% {
+      opacity: 0;
+      transform: scale(0.5) rotate(-30deg);
+  }
+  50% {
+      opacity: 0.5;
+      transform: scale(1.1) rotate(15deg);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+  }
+}
+.quote-modal .close {
+  position: absolute;
+  top: 10%; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  background-color: red; /* Red background */
+  color: white; /* White text */
+  padding: 5px 10px; /* Padding for the button */
+  cursor: pointer; /* Changes cursor to indicate it's clickable */
+  font-size: 20px; /* Larger font size */
+  border-radius: 50%; /* Circular button */
+  border: none; /* Remove border */
+  line-height: 1; /* Adjust line height to be tight to the 'x' character */
+  font-weight: bold; /* Make the 'x' bold */
+}
+
+.loading-modal-content {
+  /* Styles for the loading modal */
+  position: absolute;
+  top: 50%;
+  right: 43%;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 90;
+  /* Add more styles as needed */
+}
+
+#backButton {
+  position: fixed; /* Fixed position */
+  left: 10px;      /* 10px from the left */
+  bottom: 10px;    /* 10px from the bottom */
+  padding: 10px;   /* Padding for the button */
+  /* Add more styling as needed */
+}
+
+
+.falling-spuddy {
+  position: fixed;
+  top: -100%; /* Start off-screen */
+  width: 50px; /* Adjust the size as needed */
+  animation-name: fall-down;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall-down{
+
+to {
+    transform: translateY(300vh);
+    opacity: 1;
+}
+}
+
+/* ... other styles ... */

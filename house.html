@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Interior</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  </head>
+<body>
+  
+    <div class="my_container">
+        <img src="board.png" alt="Board" id="boardImage">
+        <div id="weatherDisplay"></div>
+        <a href="index.html">
+          <button id="backButton">City</button>
+        </a>
+        <svg class="wall" viewBox="0 0 120 60" preserveAspectRatio="none">
+          <polygon points="60 0, 120 25, 120 60, 0 60, 0 25" fill="#71551d"/>
+          <!-- Additional polygons for the roof can go here -->
+          <polygon points = "60 0, 60 5, 120 30, 120 25" fill = "#6b4819"/>
+          <polygon points = "0 30, 0 25, 60 0, 60, 5" fill = "#6b4819"/>
+        </svg>
+        <div class="floor">
+            <div class="floor-line"></div>
+        </div>
+    </div>
+
+
+  
+    <button class="button is-primary" id="menu-button">🛒</button>
+    <div id="clock" class="clock"></div>
+    <div id="moon" class="celestial hidden"></div>
+    <div id="sun" class="celestial hidden"></div>
+
+
+    <!-- Custom slide-up menu -->
+    <div class="slide-up-menu" id="pullup-menu">
+        <!-- Furniture images row -->
+        <div class="furniture-row">
+          <div class="furniture-item-container">
+            <img src="https://i.pinimg.com/originals/13/0c/7f/130c7f111d68316f82a9f57eec5db7cc.png" class="furniture-item" alt="Couch" data-price = "30" data-src="beige-couch">
+            <div class="price-tag">30💰</div>
+          </div>
+          <div class="furniture-item-container">
+            <img src="https://sweetclipart.com/wp-content/uploads/Sofa-Red-Clipart.png" class="furniture-item" alt="Couch"  data-price = "30" data-src="red-couch">
+            <div class="price-tag">30💰</div>
+          </div>
+          <div class="furniture-item-container">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/305/121/non_2x/sofa-icon-collection-clipart-design-illustration-free-png.png" class="furniture-item" id = "fifties-couch" alt="couch"  data-price = "80" data-src = "fifties-couch">
+            <div class="price-tag">80💰</div>
+          </div>
+          <!-- Add more furniture items here -->
+        </div>
+        <!-- Other menu items -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
