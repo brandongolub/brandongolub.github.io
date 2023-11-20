@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-
+/* Daily motivational quote*/
 app.get('/quote', async (req, res) => {
   console.log("Quote route hit");
   try {
@@ -41,6 +41,7 @@ app.get('/quote', async (req, res) => {
   }
 });
 
+//Fetching weather for inputted city
 app.get('/weather', async (req, res) => {
   const { city } = req.query;
   if (!city) {

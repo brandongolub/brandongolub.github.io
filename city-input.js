@@ -1,10 +1,10 @@
 // city-input.js for index.html
-
 document.addEventListener('DOMContentLoaded', () => {
   const cityInputForm = document.getElementById('cityInputForm');
   const cityInput = document.getElementById('cityInput');
+  
+  //fun animation on index.html opening
   const numberOfImages = 30; // Adjust the number of images
-
     for (let i = 0; i < numberOfImages; i++) {
         const image = new Image();
         image.src = 'lil spuddy.png';

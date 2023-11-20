@@ -25,12 +25,14 @@ body, html {
   }
 }
 
+/*Wall and roof of the house*/ 
 .wall {
   width: 100%;
   height: auto;
   z-index: 11;
 }
 
+/*Floor of house*/
 .floor {
   z-index: 12;
   background-color: #764b34; /* Color for the floor */
@@ -41,6 +43,7 @@ body, html {
   border-top: 6px solid #653a2a; /* Darker color for the line at the top of the floor */
 }
 
+/*board in background*/
 #boardImage {
   position: absolute; /* Allows you to position it anywhere within my_container */
   top: 55%; /* Adjust this value to move the board up or down */
@@ -53,14 +56,7 @@ body, html {
   cursor: pointer;
 }
 
-/* Your existing styles for .my_container, .wall, .floor, etc. */
-
-/* ... existing styles ... */
-
-/* ... existing styles ... */
-
-/* ... other styles ... */
-
+/*Button for buying furniture*/
 #menu-button {
   position: fixed; /* Fixed positioning to place the button relative to the viewport */
   right: 10px; /* 10px from the right edge of the viewport */
@@ -72,9 +68,7 @@ body, html {
   z-index: 200; /* Keeps it above other elements */
 }
 
-/* ... */
-
-
+/*Menu that comes up*/
 .slide-up-menu {
   position: fixed;
   left: 0;
@@ -95,10 +89,8 @@ body, html {
   text-decoration: none;
 }
 
-/* ... other styles ... */
 
-/* ... other styles ... */
-
+/*Row on slide up menu for furniture objects*/
 .furniture-row {
   display: flex; /* Aligns the furniture items in a row */
   overflow-x: auto; /* Allows horizontal scrolling if there are many items */
@@ -107,6 +99,7 @@ body, html {
   max-height: 100px;
 }
 
+/*Individual furniture styiling*/
 .furniture-item {
   width: 10vw; /* Scales the furniture images with the viewport width */
   height: auto; /* Keeps the aspect ratio of the images */
@@ -116,6 +109,7 @@ body, html {
   z-index: 90;
 }
 
+/*sky*/
 .celestial {
   position: fixed;
   top: 10px;
@@ -155,7 +149,7 @@ body, html {
   left: 50%;
   transform: translateX(-50%);
   width: auto;
-  max-height: 90px; /* Adjust the maximum height as needed */
+  max-height: 90px;
   cursor: pointer;
   z-index: 100;
 }
@@ -170,12 +164,9 @@ body, html {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ... existing styles ... */
-
-/* Position the weather display below the clock */
 #weatherDisplay {
   position: fixed;
-  top: 50px; /* Adjust this value to position below the clock */
+  top: 50px;
   left: 10px;
   font-size: 24px;
   color: #070303;
@@ -183,9 +174,10 @@ body, html {
   padding: 5px;
 }
 
+/*Currency*/
 #currencyCounter {
   position: fixed;
-  top: 50px; /* Adjust this value to position below the clock */
+  top: 50px;
   left: 10px;
   font-size: 24px;
   color: #ffffff;
@@ -352,7 +344,7 @@ body, html {
 /* Falling animation for rain and snow */
 @keyframes fall {
   to {
-    transform: translateY(60vh); /* Move the drops to the bottom of the screen */
+    transform: translateY(60vh); 
   }
 }
 
@@ -445,4 +437,3 @@ to {
 }
 }
 
-/* ... other styles ... */

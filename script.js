@@ -22,7 +22,9 @@
     return brightness > 0.5 ? 'black' : 'white';
   }
 
+
 document.addEventListener('DOMContentLoaded', () => {
+  //various objects on the home.html page
   const menuButton = document.getElementById('menu-button');
   const pullUpMenu = document.getElementById('pullup-menu');
   const myContainer = document.querySelector('.my_container');
@@ -32,13 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
 
-  
+  //board contains daily quote
   const boardImage = document.getElementById('boardImage');
   boardImage.addEventListener('click', () => {
     const loader = showLoadingIndicator();
     fetchQuoteAndDisplay(loader); // Pass the loader to the fetch function
 });
 
+   //pull up (opposite of drop down) menu
   menuButton.addEventListener('click', () => {
     if (pullUpMenu.style.bottom === '0px') {
       pullUpMenu.style.bottom = '-100%';
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateClockBackgroundColorAndCelestial();
 
 
-
+//Buy furniture functions
   let purchasedItems = {};
   const furnitureRow = document.querySelector('.furniture-row');
   furnitureRow.addEventListener('click', (e) => {
@@ -108,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             myContainer.appendChild(furnitureImg);
-
+            //furniture location
             furnitureImg.style.position = 'absolute';
             furnitureImg.style.left = '13%';
             furnitureImg.style.top = '80%';
@@ -121,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+  //lil spuddy location
   const lilFella = new Image();
   myContainer.appendChild(lilFella)
   lilFella.src = 'lil spuddy.png';
@@ -150,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
    
 });
 
+//get the daily quote
 async function fetchQuoteAndDisplay(loader) {
   try {
     const response = await fetch('http://localhost:3000/quote');
@@ -233,7 +238,7 @@ function createWeatherVisuals(description, precipitation) {
     removeWeatherVisuals('.cloud');
 
     // Create multiple clouds for a more dynamic sky
-    for (let i = 0; i < 3; i++) { // Create 3 clouds, adjust number as desired
+    for (let i = 0; i < 3; i++) {
       const cloudDiv = document.createElement('div');
       cloudDiv.className = 'cloud';
       cloudDiv.style.left = `${Math.random() * 90}%`; // Randomize the starting position
@@ -248,6 +253,7 @@ function createWeatherVisuals(description, precipitation) {
     }
   }
 
+  //rain and snow handlers
   if (precipitation === 'Raining') {
     createPrecipitation('Raining');
   } else if (precipitation === 'Snowing') {
@@ -268,6 +274,7 @@ function updateRainAndSnowPositions() {
   });
 }
 
+//creates the rain and snow elements
 function createPrecipitation(precipitationType) {
   const weatherContainer = document.body;
   const width = weatherContainer.offsetWidth; // Get the width of the container
@@ -309,6 +316,7 @@ function removeWeatherVisuals() {
   existingVisuals.forEach(visual => visual.remove());
 }
 
+//loading animation while retrieving daily quote
 function showLoadingIndicator() {
   const loadingModal = document.createElement('div');
   loadingModal.className = 'loading-modal';
@@ -323,6 +331,7 @@ function showLoadingIndicator() {
   return loadingModal; // Return the modal element for later removal
 }
 
+//currency handlers
 let currency = 0;
 function createCurrencyCounter() {
   const counter = document.createElement('div');
@@ -334,6 +343,7 @@ function createCurrencyCounter() {
   document.body.appendChild(counter);
   updateCurrencyDisplay();
 }
+
 
 function updateCurrencyDisplay() {
   const counter = document.getElementById('currencyCounter');
